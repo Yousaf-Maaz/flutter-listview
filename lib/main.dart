@@ -46,14 +46,47 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Pakistan Cricket Team'),
+        backgroundColor: Colors.green, // Set app bar color
       ),
-      body: ListView.builder(
-        itemCount: pakistanTeamPlayers.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(pakistanTeamPlayers[index]),
-          );
-        },
+      body: Container(
+        padding: EdgeInsets.all(16.0),
+        color: Colors.white, // Set background color
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Team Players:',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.green, // Set text color
+              ),
+            ),
+            SizedBox(height: 10),
+            Expanded(
+              child: ListView.builder(
+                itemCount: pakistanTeamPlayers.length,
+                itemBuilder: (context, index) {
+                  return Container(
+                    color: Colors.lightGreenAccent, // Set light green color
+                    child: Card(
+                      elevation: 2.0, // Add elevation to cards
+                      child: ListTile(
+                        title: Text(
+                          pakistanTeamPlayers[index],
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.black, // Set text color
+                          ),
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
